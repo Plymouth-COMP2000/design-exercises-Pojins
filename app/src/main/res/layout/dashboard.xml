@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <!-- White overlay to brighten background -->
+    <View
+        android:id="@+id/whiteOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Logo (top right) -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo"
+        android:contentDescription="Savory Logo"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Welcome Text -->
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WELCOME, ELLIOT"
+        android:textStyle="bold"
+        android:textColor="#E0D6D6"
+        android:textSize="18sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="160dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Subtext -->
+    <TextView
+        android:id="@+id/selectChoiceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Your Choice"
+        android:textColor="#E0D6D6"
+        android:textSize="14sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeText" />
+
+
+
+    <!-- Manage Menu Button -->
+    <Button
+        android:id="@+id/manageMenuButton"
+        android:layout_width="347dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/roundedbutton"
+        android:backgroundTint="@null"
+        android:text="MANAGE MENU"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectChoiceText" />
+
+    <!-- Manage Reservation Button -->
+    <Button
+        android:id="@+id/manageReservationButton"
+        android:layout_width="347dp"
+        android:layout_height="137dp"
+        android:text="MANAGE RESERVATION"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:background="@drawable/roundedbutton"
+        android:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/manageMenuButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
