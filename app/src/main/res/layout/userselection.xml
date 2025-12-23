@@ -11,55 +11,60 @@
     <!-- Logo (Top Left) -->
 
     <!-- Card-like container for buttons -->
+
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="182dp"
-        android:layout_height="142dp"
+        android:layout_width="132dp"
+        android:layout_height="80dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:contentDescription="App Logo"
         android:scaleType="fitCenter"
-        android:src="@drawable/logo"
+        android:src="@drawable/savory_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/selectionContainer"
-        android:layout_width="260dp"
-        android:layout_height="200dp"
-        android:background="@drawable/rounded_container"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp"
+        android:layout_width="322dp"
+        android:layout_height="235dp"
         android:layout_marginTop="80dp"
-        app:layout_constraintTop_toBottomOf="@id/logoImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/round_container"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:elevation="8dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImage"
+        app:layout_constraintVertical_bias="0.725">
 
         <!-- Guest Button -->
-        <Button
-            android:id="@+id/guestButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GUEST"
-            android:textAllCaps="false"
-            android:backgroundTint="#D79C57"
-            android:textColor="@android:color/white"
-            android:layout_marginBottom="16dp"
-            android:padding="10dp" />
 
         <!-- Staff Button -->
+
+        <Button
+            android:id="@+id/guestButton"
+            android:layout_width="277dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#D79C57"
+            android:padding="10dp"
+            android:text="GUEST"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
         <Button
             android:id="@+id/staffButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="272dp"
+            android:layout_height="66dp"
+            android:backgroundTint="#D79C57"
+            android:padding="10dp"
             android:text="STAFF"
             android:textAllCaps="false"
-            android:backgroundTint="#D79C57"
-            android:textColor="@android:color/white"
-            android:padding="10dp" />
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 

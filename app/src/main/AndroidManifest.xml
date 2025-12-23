@@ -11,18 +11,64 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SavoryRestaurant">
-        <activity
-            android:name=".Login"
-            android:exported="false" />
+
+        <!-- FIRST PAGE (Homepage) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <!-- User Selection Page -->
+        <activity android:name=".UserSelectionActivity" />
+
+        <!-- Guest Sign in -->
+        <activity android:name=".GuestSigninActivity" />
+
+        <!-- Guest Register-->
+        <activity android:name=".GuestRegisterActivity" />
+
+        <!-- Login Page -->
+        <activity android:name=".LoginActivity" />
+
+        <!-- Profile-->
+        <activity android:name=".ProfileActivity" />
+
+        <!-- Guest Dashboard -->
+        <activity android:name=".GuestDashboardActivity" />
+
+        <!-- Staff Dashboard -->
+        <activity android:name=".DashboardActivity" />
+
+        <!-- Menu Management -->
+        <activity android:name=".MenuActivity" />
+
+        <!-- Menu Edit -->
+        <activity android:name=".MenuEditActivity" />
+
+        <!-- Reservation Edit -->
+        <activity android:name=".ReservationActivity" />
+
+        <!-- Guest Reservation  -->
+        <activity android:name=".GuestReservationActivity" />
+
+        <!-- Guest Menu  -->
+        <activity android:name=".GuestMenuActivity" />
+
+        <!-- Guest Reservation Add  -->
+        <activity android:name=".GuestAddReservationActivity" />
+
+
+
+
+
+
+
+
     </application>
 
 </manifest>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF5EF">
+
+    <!-- Savory Logo (Top Right) -->
+
+    <!-- Profile Avatar -->
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="126dp"
+        android:layout_height="91dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Savory Logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/savory_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Notification Button -->
+
+    <!-- Sign Out Icon -->
+    <ImageView
+        android:id="@+id/profileAvatar"
+        android:layout_width="185dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="52dp"
+        android:contentDescription="Profile Avatar"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImage" />
+
+    <Button
+        android:id="@+id/notificationButton"
+        android:layout_width="170dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="76dp"
+        android:backgroundTint="#8C3F2B"
+        android:fontFamily="@font/itim"
+        android:paddingLeft="24dp"
+        android:paddingTop="10dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="10dp"
+        android:text="Notification"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileAvatar" />
+
+    <ImageView
+        android:id="@+id/signOutIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logout"
+        android:contentDescription="Sign Out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="24dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

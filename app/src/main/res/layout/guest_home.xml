@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
@@ -16,24 +17,15 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- Logo (top right) -->
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/savory_logo"
-        android:contentDescription="Savory Logo"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Welcome Text -->
 
     <ImageView
         android:id="@+id/menuIcon"
-        android:layout_width="57dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="82dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
         android:contentDescription="Menu"
         android:src="@drawable/menu"
         android:clickable="true"
@@ -41,7 +33,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Welcome Text -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="164dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="Savory Logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/savory_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
@@ -78,7 +81,7 @@
     <!-- Manage Reservation Button -->
 
     <Button
-        android:id="@+id/manageMenuButton"
+        android:id="@+id/GuestMenuButton"
         android:layout_width="0dp"
         android:layout_height="140dp"
         android:layout_marginStart="32dp"
@@ -88,7 +91,7 @@
         android:backgroundTint="@null"
         android:elevation="8dp"
         android:fontFamily="@font/itim"
-        android:text="MANAGE MENU"
+        android:text="MENU"
         android:textAllCaps="true"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -102,13 +105,13 @@
         app:layout_constraintTop_toBottomOf="@id/selectChoiceText" />
 
     <Button
-        android:id="@+id/manageReservationButton"
+        android:id="@+id/GuestReservationButton"
         android:layout_width="0dp"
         android:layout_height="140dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="32dp"
-        android:text="MANAGE RESERVATION"
+        android:text="RESERVATION"
         android:textAllCaps="true"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -119,7 +122,7 @@
         android:elevation="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/manageMenuButton" />
+        app:layout_constraintTop_toBottomOf="@id/GuestMenuButton" />
 
 
 

@@ -5,7 +5,7 @@
     <corners android:radius="20dp" />
 
     <!-- Background color -->
-    <solid android:color="#D9D9D9" />
+    <solid android:color="#97432B" />
 
     <!-- Soft shadow effect -->
     <padding

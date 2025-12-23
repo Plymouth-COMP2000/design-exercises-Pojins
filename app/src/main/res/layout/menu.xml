@@ -27,24 +27,29 @@
         android:layout_marginTop="32dp"
         android:contentDescription="Menu"
         android:src="@drawable/menu"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="100dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:contentDescription="Savory Logo"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Header bar -->
 
     <!-- Scrollable content -->
+
+    <!-- Add New Item Button -->
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="91dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Savory Logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/savory_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/menuHeader"
         android:layout_width="0dp"
@@ -62,7 +67,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoImage" />
 
-    <!-- Add New Item Button -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
@@ -173,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="DRINKS"
-                android:textColor="#00000"
+                android:textColor="#000000"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

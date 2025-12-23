@@ -31,7 +31,7 @@
         android:text="LOGIN/REGISTER"
         android:textAllCaps="false"
         android:backgroundTint="#96442C"
-        android:textColor="@android:color/black"
+        android:textColor="#ffffff"
         android:padding="10dp"
         app:layout_constraintTop_toBottomOf="@id/logoImage"
         app:layout_constraintStart_toStartOf="parent"
