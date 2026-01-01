@@ -15,12 +15,12 @@ public class GuestReservationActivity extends AppCompatActivity {
         setContentView(R.layout.guest_reservation);
 
         // Menu icon click handling
-        ImageView menuIcon = findViewById(R.id.menuIcon);
+        ImageView menuIcon = findViewById(R.id.guestmenuIcon);
         if (menuIcon != null) {
             menuIcon.setOnClickListener(v -> {
                 Intent intent = new Intent(
                         GuestReservationActivity.this,
-                        ProfileActivity.class
+                        GuestProfileActivity.class
                 );
                 startActivity(intent);
             });

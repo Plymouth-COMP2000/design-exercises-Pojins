@@ -15,7 +15,7 @@ public class UserSelectionActivity extends AppCompatActivity {
         Button guestButton = findViewById(R.id.guestButton);
         Button staffButton = findViewById(R.id.staffButton);
 
-        // GUEST → Guest Home Page (replace with your actual activity)
+
         guestButton.setOnClickListener(v -> {
             Intent intent = new Intent(UserSelectionActivity.this, GuestSigninActivity.class);
             startActivity(intent);

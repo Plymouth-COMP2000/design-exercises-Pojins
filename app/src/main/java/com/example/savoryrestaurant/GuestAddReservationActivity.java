@@ -14,7 +14,7 @@ public class GuestAddReservationActivity extends AppCompatActivity {
         setContentView(R.layout.guest_add_reservation);
 
         // Menu icon click handling
-        ImageView menuIcon = findViewById(R.id.menuIcon);
+        ImageView menuIcon = findViewById(R.id.guestmenuIcon);
         if (menuIcon != null) {
             menuIcon.setOnClickListener(v -> {
                 Intent intent = new Intent(

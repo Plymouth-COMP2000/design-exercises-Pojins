@@ -16,13 +16,13 @@ public class GuestMenuActivity extends AppCompatActivity {
         setContentView(R.layout.guest_menu);
 
         // Menu icon click handling
-        ImageView menuIcon = findViewById(R.id.menuIcon);
+        ImageView menuIcon = findViewById(R.id.guestmenuIcon);
 
         if (menuIcon != null) {
             menuIcon.setOnClickListener(v -> {
                 Intent intent = new Intent(
                         GuestMenuActivity.this,
-                        ProfileActivity.class
+                        GuestProfileActivity.class
                 );
                 startActivity(intent);
             });

@@ -132,7 +132,7 @@
             android:layout_height="40dp"
             android:contentDescription="Add Image"
             android:src="@android:drawable/ic_menu_camera"
-            android:tint="#000000" />
+            android:tint="#000000"/>
     </LinearLayout>
 
     <Button

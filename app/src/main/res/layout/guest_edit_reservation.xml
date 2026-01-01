@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
-        android:id="@+id/menuIcon"
+        android:id="@+id/guestmenuIcon"
         android:layout_width="82dp"
         android:layout_height="58dp"
         android:layout_marginStart="16dp"

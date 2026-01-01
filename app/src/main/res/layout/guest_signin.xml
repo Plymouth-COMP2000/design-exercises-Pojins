@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@id/welcomeText" />
 
     <EditText
-            android:id="@+id/emailInput"
+            android:id="@+id/usernameInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -102,10 +102,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailInput" />
+            app:layout_constraintTop_toBottomOf="@id/usernameInput" />
 
         <Button
-            android:id="@+id/signupButton"
+            android:id="@+id/signInButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -138,7 +138,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signupButton" />
+        app:layout_constraintTop_toBottomOf="@id/signInButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

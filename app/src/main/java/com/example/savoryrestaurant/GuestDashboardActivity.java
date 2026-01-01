@@ -1,9 +1,11 @@
 package com.example.savoryrestaurant;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView; // ✅ ADD THIS
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,29 +16,42 @@ public class GuestDashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.guest_home);
 
-        // Menu icon click handling
-        ImageView menuIcon = findViewById(R.id.menuIcon);
+        // ✅ WELCOME USERNAME
+        TextView welcomeText = findViewById(R.id.welcomeText);
+
+        SharedPreferences prefs =
+                getSharedPreferences("UserPrefs", MODE_PRIVATE);
+
+        String username = prefs.getString("username", "Guest");
+
+        if (welcomeText != null) {
+            welcomeText.setText(("WELCOME, " + username).toUpperCase());
+        }
+
+        // Menu icon → Guest Profile
+        ImageView menuIcon = findViewById(R.id.guestmenuIcon);
         if (menuIcon != null) {
             menuIcon.setOnClickListener(v -> {
-                Intent intent = new Intent(
+                startActivity(new Intent(
                         GuestDashboardActivity.this,
-                        ProfileActivity.class
-                );
-                startActivity(intent);
+                        GuestProfileActivity.class
+                ));
             });
         }
 
         Button guestMenuButton = findViewById(R.id.GuestMenuButton);
         Button guestReservationButton = findViewById(R.id.GuestReservationButton);
 
-        guestMenuButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, GuestMenuActivity.class);
-            startActivity(intent);
-        });
+        if (guestMenuButton != null) {
+            guestMenuButton.setOnClickListener(v -> {
+                startActivity(new Intent(this, GuestMenuActivity.class));
+            });
+        }
 
-        guestReservationButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, GuestReservationActivity.class);
-            startActivity(intent);
-        });
+        if (guestReservationButton != null) {
+            guestReservationButton.setOnClickListener(v -> {
+                startActivity(new Intent(this, GuestReservationActivity.class));
+            });
+        }
     }
 }
