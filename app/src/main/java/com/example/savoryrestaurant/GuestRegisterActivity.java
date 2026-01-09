@@ -20,10 +20,13 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.charset.StandardCharsets;
+
 public class GuestRegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "GuestRegister";
 
+    // Your API base + student id
     private static final String BASE_URL = "http://10.240.72.69/comp2000/coursework";
     private static final String STUDENT_ID = "10928038";
 
@@ -67,6 +70,9 @@ public class GuestRegisterActivity extends AppCompatActivity {
                 return;
             }
 
+            // Prevent double taps
+            signupButton.setEnabled(false);
+
             JSONObject userData = new JSONObject();
             try {
                 userData.put("username", username);
@@ -76,33 +82,36 @@ public class GuestRegisterActivity extends AppCompatActivity {
                 userData.put("email", email);
                 userData.put("contact", contact);
 
-                // API doc uses "student" / "staff". Use "student" for guest side. :contentReference[oaicite:2]{index=2}
+                // API expects "student" for guest side accounts
                 userData.put("usertype", "student");
             } catch (JSONException e) {
+                signupButton.setEnabled(true);
                 Toast.makeText(this, "JSON error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 return;
             }
 
             // 1) Ensure DB exists, then 2) Create user
-            ensureStudentDbThenRegister(userData, username);
+            ensureStudentDbThenRegister(userData, username, email, firstName, lastName, signupButton);
         });
     }
 
-    private void ensureStudentDbThenRegister(JSONObject userData, String username) {
-        // create_student has no request body
+    private void ensureStudentDbThenRegister(
+            JSONObject userData,
+            String username,
+            String email,
+            String firstName,
+            String lastName,
+            Button signupButton
+    ) {
         JsonObjectRequest createDbReq = new JsonObjectRequest(
                 Request.Method.POST,
                 CREATE_STUDENT_URL(),
                 null,
-                response -> {
-                    // Even if it already exists, it may still respond OK. Then register.
-                    sendRegisterRequest(userData, username);
-                },
+                response -> sendRegisterRequest(userData, username, email, firstName, lastName, signupButton),
                 error -> {
-                    // If DB already exists, some APIs still return an error.
-                    // We'll still attempt registration after logging the error.
+                    // Some backends return an error if DB already exists. Log it and try register anyway.
                     Log.e(TAG, "create_student error: " + volleyErrorToString(error));
-                    sendRegisterRequest(userData, username);
+                    sendRegisterRequest(userData, username, email, firstName, lastName, signupButton);
                 }
         );
 
@@ -115,17 +124,28 @@ public class GuestRegisterActivity extends AppCompatActivity {
         queue.add(createDbReq);
     }
 
-    private void sendRegisterRequest(JSONObject userData, String username) {
+    private void sendRegisterRequest(
+            JSONObject userData,
+            String username,
+            String email,
+            String firstName,
+            String lastName,
+            Button signupButton
+    ) {
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.POST,
                 CREATE_USER_URL(),
                 userData,
                 response -> {
+                    // Save logged-in user info locally (useful for tying reservations to a guest)
                     SharedPreferences prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
                     prefs.edit()
                             .putBoolean("loggedIn", true)
-                            .putString("role", "guest")
+                            .putString("role", "guest")     // your app-side role name
                             .putString("username", username)
+                            .putString("email", email)      // IMPORTANT: use this later to filter "my reservations"
+                            .putString("firstName", firstName)
+                            .putString("lastName", lastName)
                             .apply();
 
                     Toast.makeText(this, "Registration successful", Toast.LENGTH_LONG).show();
@@ -134,6 +154,7 @@ public class GuestRegisterActivity extends AppCompatActivity {
                 },
                 error -> {
                     Log.e(TAG, "create_user error: " + volleyErrorToString(error));
+                    signupButton.setEnabled(true);
                     Toast.makeText(this, "Registration failed: " + readableVolleyError(error), Toast.LENGTH_LONG).show();
                 }
         );
@@ -148,13 +169,25 @@ public class GuestRegisterActivity extends AppCompatActivity {
     }
 
     private String readableVolleyError(VolleyError error) {
-        if (error.networkResponse == null) return "No response (check VPN/Wi-Fi, cleartext HTTP, server reachability)";
+        if (error == null) return "Unknown error";
+        if (error.networkResponse == null) {
+            return "No response (check Wi-Fi/VPN, cleartext HTTP, server reachability)";
+        }
+
+        // Try to show server message if it returned JSON/text
+        try {
+            String body = new String(error.networkResponse.data, StandardCharsets.UTF_8);
+            if (body != null && !body.trim().isEmpty()) {
+                return "HTTP " + error.networkResponse.statusCode + " - " + body;
+            }
+        } catch (Exception ignored) {}
+
         return "HTTP " + error.networkResponse.statusCode;
     }
 
     private String volleyErrorToString(VolleyError error) {
         if (error == null) return "null";
         if (error.networkResponse == null) return error.toString();
-        return error.toString() + " | status=" + error.networkResponse.statusCode;
+        return error + " | status=" + error.networkResponse.statusCode;
     }
 }

@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_container"
+    android:layout_margin="6dp">
+
+    <TextView
+        android:id="@+id/reservationNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/itim"/>
+
+    <TextView
+        android:id="@+id/reservationDetailsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"
+        android:textColor="#444444"
+        android:fontFamily="@font/itim"/>
+</LinearLayout>

@@ -13,11 +13,10 @@
         android:layout_height="match_parent"
         android:background="#33FFFFFF"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-    <!-- Menu Icon (top-left) -->
     <ImageView
-        android:id="@+id/menuIcon"
+        android:id="@+id/guestmenuIcon"
         android:layout_width="82dp"
         android:layout_height="58dp"
         android:layout_marginStart="16dp"
@@ -29,12 +28,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Logo (top-right) -->
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="110dp"
-        android:layout_height="83dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="200dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:contentDescription="Savory Logo"
         android:scaleType="fitCenter"
@@ -42,56 +40,79 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Header -->
     <TextView
-        android:id="@+id/reservationsHeader"
+        android:id="@+id/headerText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:background="#D9D9D9"
-        android:padding="10dp"
+        android:fontFamily="@font/itim"
+        android:padding="12dp"
         android:text="RESERVATIONS"
+        android:textColor="@android:color/black"
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/logoImage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Reservations List -->
     <ListView
         android:id="@+id/reservationsListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="10dp"
-        app:layout_constraintTop_toBottomOf="@id/reservationsHeader"
-        app:layout_constraintBottom_toTopOf="@id/cancelButton"
+        app:layout_constraintTop_toBottomOf="@id/headerText"
+        app:layout_constraintBottom_toTopOf="@id/buttonRow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Cancel Button -->
-    <Button
-        android:id="@+id/cancelButton"
+    <LinearLayout
+        android:id="@+id/buttonRow"
         android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:text="CANCEL"
-        android:textAllCaps="true"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:background="@drawable/cancelbutton"
-        android:backgroundTint="@null"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="40dp"
-        app:backgroundTint= "@null"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/editReservationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EDIT"
+            android:textColor="#000000"
+            android:background="@drawable/roundedbutton"
+            app:backgroundTint="@null"
+            android:textAllCaps="false"
+            android:layout_marginEnd="12dp"/>
+
+        <Button
+            android:id="@+id/addReservationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD"
+            android:textColor="#000000"
+            android:background="@drawable/roundedbutton"
+            app:backgroundTint="@null"
+            android:textAllCaps="false"
+            android:layout_marginEnd="12dp"/>
+
+        <Button
+            android:id="@+id/cancelReservationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"
+            android:textColor="#000000"
+            android:background="@drawable/roundedbutton"
+            app:backgroundTint="@null"
+            android:textAllCaps="false" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
